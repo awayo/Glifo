@@ -259,7 +259,11 @@ public class BasePropertiesMapper<E extends ModelEntity, M extends ModelData> {
                         }
                         if (setterEntityMethod != null) {
                             try {
-                                setterEntityMethod.invoke(entityObject, getterModelMethod.invoke(object));
+                                if (isDebug) {
+                                    Log.d(LOG_TAG, setterEntityMethod.getName()+" "+entityObject+ " "+getterModelMethod.getName()+ " "+ object);
+                                }
+                                Object modelValueReturnedFromGetter = getterModelMethod.invoke(object);
+                                setterEntityMethod.invoke(entityObject, modelValueReturnedFromGetter);
                             } catch (IllegalArgumentException e) {
                                 if (isDebug) {
                                     Log.e(LOG_TAG, e.getMessage());

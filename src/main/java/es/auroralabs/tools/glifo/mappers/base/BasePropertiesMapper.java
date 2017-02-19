@@ -176,6 +176,7 @@ public class BasePropertiesMapper<E extends ModelEntity, M extends ModelData> {
             E entityObject = entityClass.newInstance();
 
             for (String getter : modelMapper.keySet()) {
+                alreadySetted = false;
                 try {
                     Method getterModelMethod = modelClass.getMethod(getter);
                     Method getterEntityMethod = entityClass.getMethod(getter);
@@ -318,6 +319,7 @@ public class BasePropertiesMapper<E extends ModelEntity, M extends ModelData> {
             M modelObject = modelClass.newInstance();
 
             for (String getter : entityMapper.keySet()) {
+                alreadySetted = false;
                 try {
                     Method getterEntityMethod = entityClass.getMethod(getter);
                     Method getterModelMethod = modelClass.getMethod(getter);

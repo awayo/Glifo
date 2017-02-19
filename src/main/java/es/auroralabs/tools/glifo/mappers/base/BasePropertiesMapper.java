@@ -199,7 +199,7 @@ public class BasePropertiesMapper<E extends ModelEntity, M extends ModelData> {
                             Class dumpedClass = Class.forName(modelName);
                             MapperComponent mapperComponent = getMapperComponentFromName(mapperNameFromModelName(dumpedClass.getName()));
                             if (mapperComponent != null) {
-                                Method setterEntityMethod = entityClass.getMethod(modelMapper.get(getter), modelReturnClass);
+                                Method setterEntityMethod = entityClass.getMethod(entityMapper.get(getter), Class.forName(mapperComponent.entityName));
 
                                 Method mapperToEntityMethod = null;
                                 try {

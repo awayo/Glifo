@@ -171,6 +171,9 @@ public class BasePropertiesMapper<E extends ModelEntity, M extends ModelData> {
     }
 
     public E toEntity(M object) {
+        if (object == null) {
+            return null;
+        }
         boolean alreadySetted = false;
         try {
             E entityObject = entityClass.newInstance();
@@ -314,6 +317,9 @@ public class BasePropertiesMapper<E extends ModelEntity, M extends ModelData> {
     }
 
     public M fromEntity(E object) {
+        if (object == null) {
+            return null;
+        }
         boolean alreadySetted = false;
         try {
             M modelObject = modelClass.newInstance();

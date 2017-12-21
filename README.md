@@ -20,5 +20,14 @@ Then add this dependency to your build.gradle file:
 ```
 compile 'com.github.awayo:Glifo:v1.0.9'
 ```
-        
+
+Proguard Settings
+------------------
+
+If you use Proguard you need to keep your data classes
+
+```
+-keep class <app-package-name>.datasource.** { *; }
+-keep class <app-package-name>.domain.** { *; }
+```        
  

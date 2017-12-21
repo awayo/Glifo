@@ -29,5 +29,5 @@ If you use Proguard you need to keep your data classes
 ```
 -keep class <app-package-name>.datasource.** { *; }
 -keep class <app-package-name>.domain.** { *; }
-```        
+```   
  
